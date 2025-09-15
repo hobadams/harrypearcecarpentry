@@ -1,0 +1,20 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+import H1 from "../components/H1.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  meta={{
+    title: "Something went wrong",
+    description: "Please try again later",
+  }}
+>
+  <section
+    class="flex flex-col items-center text-center gap-8 justify-center py-16 px-4"
+  >
+    <H1 title="Something went wrong" />
+    <p class="text-lg">Please try again later</p>
+    <ButtonLink href="/" label="Go to home" />
+  </section>
+</BaseLayout>

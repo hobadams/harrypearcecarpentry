@@ -1,19 +1,16 @@
 ---
-import { contact } from "../data";
+import ButtonLink from "./ButtonLink.astro";
+import { ShieldCheck } from "@lucide/astro";
 ---
 
 <div class="mt-auto">
-  <section class="bg-muted text-muted-foreground px-4 py-8">
+  <section class="bg-muted text-muted-foreground px-4 py-16">
     <div
-      class="max-w-6xl mx-auto flex flex-col gap-4 justify-center items-center"
+      class="max-w-6xl mx-auto flex flex-col gap-4 justify-center items-center text-center"
     >
       <h2 class="text-2xl font-bold">Work with me</h2>
       <p>Contact me today to discuss your project and get a free quote.</p>
-      <a
-        href="/contact"
-        class="bg-secondary text-secondary-foreground px-4 py-2 rounded-md"
-        >Contact me</a
-      >
+      <ButtonLink href="/contact" label="Contact me" />
     </div>
   </section>
   <footer class="bg-foreground text-background px-4 py-8 text-sm">
@@ -21,12 +18,10 @@ import { contact } from "../data";
       class="max-w-6xl mx-auto flex items-center flex-col md:flex-row justify-center md:justify-between gap-4"
     >
       <div class="flex items-center gap-2">
-        <p>
-          <a href={`tel:${contact.phone}`}>{contact.phoneFormatted}</a>
-        </p>
-        |
-        <p>
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        <ShieldCheck size={36} class="text-background/70" stroke-width={1.2} />
+        <p class="flex flex-col">
+          <span class="font-bold uppercase">Fully insured</span>with Public
+          Liability Insurance
         </p>
       </div>
       <p>Carpentry &amp; Handyman Services - Capel-le-Ferne, Kent</p>

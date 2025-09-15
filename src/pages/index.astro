@@ -1,4 +1,5 @@
 ---
+import ButtonLink from "../components/ButtonLink.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -8,7 +9,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     description: "I am a carpenter and handyman in Capel-le-Ferne, Kent",
   }}
 >
-  <section class="flex flex-col items-center justify-center py-16 px-4">
-    <h1 class="text-4xl font-bold">🚀 Coming Soon</h1>
+  <section
+    class="flex flex-col items-center text-center gap-8 justify-center py-16 px-4"
+  >
+    <h1 class="text-4xl font-bold">Hi, I'm Harry</h1>
+    <p class="text-lg">
+      I'm a carpenter and handyman in Capel-le-Ferne, Kent.<br />I offer a wide
+      range of services, including Carpentry, Handyman Services, Flat pack
+      assembly &amp; Kitchen Fitting.<br />Serving Capel-le-Ferne &amp;
+      Folkestone Kent.
+    </p>
+    <ButtonLink href="/services" label="View Services" />
   </section>
 </BaseLayout>

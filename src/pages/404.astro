@@ -1,0 +1,20 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+import H1 from "../components/H1.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  meta={{
+    title: "Page not found",
+    description: "The page you are looking for does not exist",
+  }}
+>
+  <section
+    class="flex flex-col items-center text-center gap-8 justify-center py-16 px-4"
+  >
+    <H1 title="404" />
+    <p class="text-lg">Page not found</p>
+    <ButtonLink href="/" label="Go to home" />
+  </section>
+</BaseLayout>

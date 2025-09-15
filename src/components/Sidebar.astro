@@ -1,9 +1,9 @@
 ---
 import { navigation } from "../navigation";
 import cn from "../utils/cn";
-import MenuIcon from "./icons/Menu.astro";
-import CloseIcon from "./icons/Close.astro";
+import { Menu, X, Phone } from "@lucide/astro";
 import isActiveLink from "../utils/is-active-link";
+import { contact } from "../data";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -11,7 +11,7 @@ const currentPath = Astro.url.pathname;
 <div class="relative md:hidden block">
   <!-- Menu Button -->
   <button id="menuButton" aria-label="Open sidebar">
-    <MenuIcon />
+    <Menu />
   </button>
 
   <!-- Sidebar Overlay -->
@@ -25,10 +25,10 @@ const currentPath = Astro.url.pathname;
     id="sidebar"
     class="fixed right-0 top-0 h-full w-64 bg-background shadow-lg transform translate-x-full transition-transform duration-300"
   >
-    <div class="p-4 flex flex-col h-full">
+    <div class="p-4 flex flex-col h-full gap-8">
       <header class="flex justify-end">
         <button id="closeButton" aria-label="Close sidebar">
-          <CloseIcon />
+          <X />
         </button>
       </header>
 
@@ -52,6 +52,13 @@ const currentPath = Astro.url.pathname;
           })
         }
       </nav>
+
+      <footer class="mt-auto flex flex-col gap-4 items-center">
+        <p class="text flex items-center gap-2 text-muted-foreground">
+          <Phone size={16} />
+          <a href={`tel:${contact.phone}`}>{contact.phoneFormatted}</a>
+        </p>
+      </footer>
     </div>
   </aside>
 </div>

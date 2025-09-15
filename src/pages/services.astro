@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import H1 from "../components/H1.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -7,21 +8,25 @@ const services = [
     title: "Carpentry",
     description:
       "I offer a wide range of carpentry services, including but not limited to.. ",
+    image: "/images/services/kitchen.jpg",
   },
   {
     title: "Handyman Services",
     description:
       "I offer a wide range of handyman services, including but not limited to.. ",
+    image: "/images/services/kitchen.jpg",
   },
   {
     title: "Flat pack assembly",
     description:
       "I offer a wide range of flat pack assembly services, including but not limited to.. ",
+    image: "/images/services/kitchen.jpg",
   },
   {
     title: "Kitchen Fitting",
     description:
       "I offer a wide range of kitchen installation services, including but not limited to.. ",
+    image: "/images/services/kitchen.jpg",
   },
 ];
 ---
@@ -32,13 +37,31 @@ const services = [
   <section
     class="flex flex-col gap-8 items-center justify-center max-w-6xl mx-auto py-16 px-4"
   >
-    <H1 title="Services" />
+    <div class="flex flex-col gap-4 text-center max-w-xl mx-auto">
+      <H1 title="Services" />
+      <p>
+        I pride myself on providing a high quality service to my clients. No job
+        is too small and I am able to work with you to find a solution to your
+        problem.
+      </p>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {
         services.map((service) => (
-          <div class="border border-gray-200 rounded-md p-4 min-h-[200px] text-center flex flex-col justify-center">
-            <h2 class="text-2xl font-bold">{service.title}</h2>
-            <p class="text-gray-500">{service.description}</p>
+          <div class="border border-border/50 rounded-md min-h-[200px] text-center flex flex-col justify-center">
+            <Image
+              src={service.image}
+              alt={service.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+              width={300}
+              height={300}
+            />
+            <div class="p-4">
+              <h2 class="text-2xl font-bold">{service.title}</h2>
+              <p class="text-gray-500">{service.description}</p>
+            </div>
           </div>
         ))
       }
