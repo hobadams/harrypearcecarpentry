@@ -2,16 +2,22 @@
 import Sidebar from "./Sidebar.astro";
 import { navigation } from "../navigation";
 import cn from "../utils/cn";
+import LogoIcon from "./icons/Logo.astro";
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="bg-white shadow-md">
+<header class="border-b border-primary">
   <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
     <!-- Logo -->
-    <a href="/" class="flex flex-col text-primary">
-      <span class="text-xl">Harry Pearce</span>
-      <span class="font-bold">Carpentry</span>
+    <a href="/" class="flex text-foreground gap-1">
+      <LogoIcon class="size-10" />
+      <span class="flex flex-col"
+        ><span class="text-xl uppercase font-bold leading-[1]"
+          >Harry Pearce</span
+        >
+        <span class="text-lg uppercase leading-[1]">Carpentry</span></span
+      >
     </a>
 
     <!-- Navigation -->
@@ -23,8 +29,8 @@ const currentPath = Astro.url.pathname;
               <a
                 href={link.href}
                 class={cn(
-                  "text-gray-700 hover:text-indigo-600 transition-colors",
-                  currentPath === link.href && "text-indigo-600"
+                  "text-foreground hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary leading-loose",
+                  currentPath === link.href && "text-primary border-primary"
                 )}
               >
                 {link.label}

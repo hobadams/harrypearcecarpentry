@@ -1,14 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap") layer(base);
 @import "tailwindcss";
 
 :root {
---background: hsl(0 0% 100%);
+--background: hsl(40 100% 99%);
 --foreground: hsl(0 0% 3.9%);
---primary: hsl(240 62.3% 10.4%);
---primary-foreground: hsl(153 95% 67%);
+--primary: hsl(10 60% 15%);
+--primary-foreground: hsl(40 100% 98%);
 --secondary: hsl(0 0% 96.1%);
 --secondary-foreground: hsl(0 0% 9%);
 --muted: hsl(0 0% 96%);
---muted-foreground: hsl(0 0% 45.1%);
+--muted-foreground: hsl(0, 1%, 65%);
 --border: hsl(240, 12%, 37%);
 }
   
@@ -30,8 +31,6 @@
 
     --color-muted: var(--muted);
     --color-muted-foreground: var(--muted-foreground);
-
-
     --color-border: var(--border);
 }
   

@@ -17,10 +17,12 @@ const meta = Astro.props.meta || {
     <meta name="description" content={meta.description} />
   </head>
   <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <div class="flex flex-col min-h-screen">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>

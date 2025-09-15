@@ -1,9 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  {
+    title: "Carpentry",
+    description:
+      "I offer a wide range of carpentry services, including but not limited to.. ",
+  },
+  {
+    title: "Handyman Services",
+    description:
+      "I offer a wide range of handyman services, including but not limited to.. ",
+  },
+  {
+    title: "Flat pack assembly",
+    description:
+      "I offer a wide range of flat pack assembly services, including but not limited to.. ",
+  },
+];
 ---
 
-<BaseLayout meta={{ title: "Coming Soon", description: "Stay tuned!" }}>
-  <section class="flex flex-col items-center justify-center h-screen">
-    <h1 class="text-4xl font-bold">🚀 Coming Soon</h1>
+<BaseLayout
+  meta={{ title: "Services", description: "A list of the services I offer" }}
+>
+  <section
+    class="flex flex-col gap-8 items-center justify-center max-w-6xl mx-auto py-8"
+  >
+    <h1 class="text-4xl font-bold">Services</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {
+        services.map((service) => (
+          <div class="border border-gray-200 rounded-md p-4 min-h-[200px] text-center flex flex-col justify-center">
+            <h2 class="text-2xl font-bold">{service.title}</h2>
+            <p class="text-gray-500">{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
   </section>
 </BaseLayout>
