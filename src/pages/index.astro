@@ -1,0 +1,37 @@
+---
+const site = {
+  title: "My Website – Coming Soon",
+  description: "Something amazing is on the way. Stay tuned!",
+  url: "https://<your-username>.github.io/<repo-name>/", // update this
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+
+    <!-- Open Graph for SEO -->
+    <meta property="og:title" content={site.title} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={site.url} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={site.title} />
+    <meta name="twitter:description" content={site.description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center min-h-screen">
+    <main class="text-center text-white px-6">
+      <h1 class="text-5xl font-extrabold mb-4">🚀 Coming Soon</h1>
+      <p class="text-lg opacity-90">We’re working hard to launch something awesome.</p>
+    </main>
+  </body>
+</html>
