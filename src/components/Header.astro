@@ -1,28 +1,31 @@
 ---
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" },
-  { href: "/gallery", label: "Gallery" },
-];
+import Sidebar from "./Sidebar.astro";
+import { navigation } from "../navigation";
+import cn from "../utils/cn";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-white shadow-md">
   <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
     <!-- Logo -->
-    <a href="/" class="text-2xl font-bold text-indigo-600"
-      >Harry Pearce Carpentry</a
-    >
+    <a href="/" class="flex flex-col text-primary">
+      <span class="text-xl">Harry Pearce</span>
+      <span class="font-bold">Carpentry</span>
+    </a>
 
     <!-- Navigation -->
-    <nav>
-      <ul class="flex space-x-6">
+    <nav class="hidden md:block">
+      <ul class="flex justify-end gap-6">
         {
-          navLinks.map((link) => (
+          navigation.map((link) => (
             <li>
               <a
                 href={link.href}
-                class="text-gray-700 hover:text-indigo-600 transition-colors"
+                class={cn(
+                  "text-gray-700 hover:text-indigo-600 transition-colors",
+                  currentPath === link.href && "text-indigo-600"
+                )}
               >
                 {link.label}
               </a>
@@ -31,5 +34,6 @@ const navLinks = [
         }
       </ul>
     </nav>
+    <Sidebar />
   </div>
 </header>

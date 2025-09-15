@@ -1,0 +1,83 @@
+---
+import { navigation } from "../navigation";
+import cn from "../utils/cn";
+import MenuIcon from "./icons/Menu.astro";
+import CloseIcon from "./icons/Close.astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="relative md:hidden block">
+  <!-- Menu Button -->
+  <button id="menuButton" aria-label="Open sidebar">
+    <MenuIcon />
+  </button>
+
+  <!-- Sidebar Overlay -->
+  <button
+    id="sidebarOverlay"
+    aria-label="Close sidebar"
+    class="fixed inset-0 bg-foreground/30 hidden focus:outline-none"></button>
+
+  <!-- Sidebar -->
+  <aside
+    id="sidebar"
+    class="fixed right-0 top-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300"
+  >
+    <div class="p-4 flex flex-col h-full">
+      <header class="flex justify-end">
+        <button id="closeButton" aria-label="Close sidebar">
+          <CloseIcon />
+        </button>
+      </header>
+
+      <!-- Links -->
+      <nav class="flex flex-col space-y-2">
+        {
+          navigation.map((link) => (
+            <a
+              href={link.href}
+              class={cn(
+                "px-2 py-1 hover:bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-500",
+                currentPath === link.href && "bg-gray-200"
+              )}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </aside>
+</div>
+
+<script>
+  const menuButton = document.getElementById("menuButton")!;
+  const sidebar = document.getElementById("sidebar")!;
+  const overlay = document.getElementById("sidebarOverlay")!;
+  const closeButton = document.getElementById("closeButton")!;
+
+  function openSidebar() {
+    sidebar.classList.remove("translate-x-full");
+    overlay.classList.remove("hidden");
+    // Auto-focus the first focusable element (close button)
+    closeButton.focus();
+  }
+
+  function closeSidebar() {
+    sidebar.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+    menuButton.focus();
+  }
+
+  menuButton.addEventListener("click", openSidebar);
+  closeButton.addEventListener("click", closeSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  // Optional: Close sidebar with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !sidebar.classList.contains("translate-x-full")) {
+      closeSidebar();
+    }
+  });
+</script>
