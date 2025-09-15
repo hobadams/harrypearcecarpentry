@@ -3,6 +3,7 @@ import { navigation } from "../navigation";
 import cn from "../utils/cn";
 import MenuIcon from "./icons/Menu.astro";
 import CloseIcon from "./icons/Close.astro";
+import isActiveLink from "../utils/is-active-link";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -35,13 +36,7 @@ const currentPath = Astro.url.pathname;
       <nav class="flex flex-col space-y-2">
         {
           navigation.map((link) => {
-            let isActive = false;
-
-            if (link.exactMatch) {
-              isActive = currentPath === link.href;
-            } else {
-              isActive = currentPath.includes(link.href);
-            }
+            const isActive = isActiveLink(currentPath, link);
 
             return (
               <a

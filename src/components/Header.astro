@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar.astro";
 import { navigation } from "../navigation";
 import cn from "../utils/cn";
 import LogoIcon from "./icons/Logo.astro";
+import isActiveLink from "../utils/is-active-link";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -25,13 +26,7 @@ const currentPath = Astro.url.pathname;
       <ul class="flex justify-end gap-6">
         {
           navigation.map((link) => {
-            let isActive = false;
-
-            if (link.exactMatch) {
-              isActive = currentPath === link.href;
-            } else {
-              isActive = currentPath.includes(link.href);
-            }
+            const isActive = isActiveLink(currentPath, link);
 
             return (
               <li>
@@ -39,7 +34,7 @@ const currentPath = Astro.url.pathname;
                   href={link.href}
                   class={cn(
                     "text-foreground hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary leading-loose",
-                    currentPath === link.href && "text-primary border-primary"
+                    isActive && "text-primary border-primary"
                   )}
                 >
                   {link.label}
