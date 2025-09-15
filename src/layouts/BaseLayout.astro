@@ -6,6 +6,8 @@ import "../styles/global.css";
 const meta = Astro.props.meta || {
   title: "Default Title",
   description: "Default description",
+  image: "https://harrypearcecarpentry.co.uk/imagesog.jpg",
+  url: "https://harrypearcecarpentry.co.uk",
 };
 ---
 
@@ -15,6 +17,24 @@ const meta = Astro.props.meta || {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{meta.title} | Harry Pearce Carpentry</title>
     <meta name="description" content={meta.description} />
+    <meta name="robots" content="index, follow" />
+
+    <meta
+      property="og:title"
+      content={`${meta.title} | Harry Pearce Carpentry`}
+    />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={meta.image} />
+    <meta property="og:url" content={meta.url} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content={`${meta.title} | Harry Pearce Carpentry`}
+    />
+    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:image" content={meta.image} />
   </head>
   <body>
     <div class="flex flex-col min-h-screen">
