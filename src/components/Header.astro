@@ -24,19 +24,29 @@ const currentPath = Astro.url.pathname;
     <nav class="hidden md:block">
       <ul class="flex justify-end gap-6">
         {
-          navigation.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class={cn(
-                  "text-foreground hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary leading-loose",
-                  currentPath === link.href && "text-primary border-primary"
-                )}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
+          navigation.map((link) => {
+            let isActive = false;
+
+            if (link.exactMatch) {
+              isActive = currentPath === link.href;
+            } else {
+              isActive = currentPath.includes(link.href);
+            }
+
+            return (
+              <li>
+                <a
+                  href={link.href}
+                  class={cn(
+                    "text-foreground hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary leading-loose",
+                    currentPath === link.href && "text-primary border-primary"
+                  )}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })
         }
       </ul>
     </nav>

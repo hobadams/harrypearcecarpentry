@@ -34,17 +34,27 @@ const currentPath = Astro.url.pathname;
       <!-- Links -->
       <nav class="flex flex-col space-y-2">
         {
-          navigation.map((link) => (
-            <a
-              href={link.href}
-              class={cn(
-                "px-2 py-1 hover:bg-muted hover:text-muted-foreground rounded focus:outline-none focus:ring-2 focus:ring-primary",
-                currentPath === link.href && "bg-muted text-muted-foreground"
-              )}
-            >
-              {link.label}
-            </a>
-          ))
+          navigation.map((link) => {
+            let isActive = false;
+
+            if (link.exactMatch) {
+              isActive = currentPath === link.href;
+            } else {
+              isActive = currentPath.includes(link.href);
+            }
+
+            return (
+              <a
+                href={link.href}
+                class={cn(
+                  "px-2 py-1 hover:bg-muted hover:text-muted-foreground rounded focus:outline-none focus:ring-2 focus:ring-primary",
+                  isActive && "bg-muted text-muted-foreground"
+                )}
+              >
+                {link.label}
+              </a>
+            );
+          })
         }
       </nav>
     </div>
