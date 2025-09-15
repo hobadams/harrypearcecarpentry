@@ -2,15 +2,15 @@
 @import "tailwindcss";
 
 :root {
---background: hsl(40 100% 99%);
---foreground: hsl(0 0% 3.9%);
---primary: hsl(10 60% 15%);
---primary-foreground: hsl(40 100% 98%);
---secondary: hsl(0 0% 96.1%);
---secondary-foreground: hsl(0 0% 9%);
---muted: hsl(0 0% 96%);
---muted-foreground: hsl(0, 1%, 65%);
---border: hsl(240, 12%, 37%);
+--background: hsl(150 8% 95%);
+--foreground: hsl(30 11% 4%);
+--primary: hsl(199 27% 18%);
+--primary-foreground: hsl(150 8% 95%);
+--secondary: hsl(22 20% 31%);
+--secondary-foreground: hsl(150 8% 95%);
+--muted: hsl(29 20% 68%);
+--muted-foreground: hsl(30 11% 4%);
+--border: hsl(0, 0%, 67%);
 }
   
   

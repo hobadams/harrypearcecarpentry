@@ -1,0 +1,14 @@
+---
+import cn from "../utils/cn";
+
+const { title, className } = Astro.props;
+---
+
+<h1
+  class={cn(
+    "after:content-[''] after:block after:h-[2px] after:bg-muted after:mt-2 after:w-10 after:mx-auto after:rounded-full text-4xl font-bold",
+    className
+  )}
+>
+  {title}
+</h1>

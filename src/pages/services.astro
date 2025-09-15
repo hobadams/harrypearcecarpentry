@@ -1,4 +1,5 @@
 ---
+import H1 from "../components/H1.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const services = [
@@ -31,7 +32,7 @@ const services = [
   <section
     class="flex flex-col gap-8 items-center justify-center max-w-6xl mx-auto py-16 px-4"
   >
-    <h1 class="text-4xl font-bold">Services</h1>
+    <H1 title="Services" />
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {
         services.map((service) => (

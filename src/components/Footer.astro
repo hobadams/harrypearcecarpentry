@@ -1,5 +1,9 @@
+---
+import { contact } from "../data";
+---
+
 <div class="mt-auto">
-  <section class="bg-primary text-primary-foreground px-4 py-8">
+  <section class="bg-muted text-muted-foreground px-4 py-8">
     <div
       class="max-w-6xl mx-auto flex flex-col gap-4 justify-center items-center"
     >
@@ -7,7 +11,7 @@
       <p>Contact me today to discuss your project and get a free quote.</p>
       <a
         href="/contact"
-        class="bg-primary-foreground text-primary px-4 py-2 rounded-md"
+        class="bg-secondary text-secondary-foreground px-4 py-2 rounded-md"
         >Contact me</a
       >
     </div>
@@ -16,7 +20,15 @@
     <div
       class="max-w-6xl mx-auto flex items-center flex-col md:flex-row justify-center md:justify-between gap-4"
     >
-      <p>Harry Pearce Carpentry</p>
+      <div class="flex items-center gap-2">
+        <p>
+          <a href={`tel:${contact.phone}`}>{contact.phoneFormatted}</a>
+        </p>
+        |
+        <p>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </p>
+      </div>
       <p>Carpentry &amp; Handyman Services - Capel-le-Ferne, Kent</p>
     </div>
   </footer>
