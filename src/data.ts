@@ -1,5 +1,5 @@
 export const contact = {
-  email: "harry@harrypearcecarpentry.co.uk",
+  email: "harrypearce744@gmail.com",
   phoneFormatted: "07399 921451",
   phone: "+447399921451",
 };

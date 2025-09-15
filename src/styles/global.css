@@ -4,6 +4,7 @@
 :root {
 --background: hsl(150 8% 95%);
 --foreground: hsl(30 11% 4%);
+--text: hsl(0, 1%, 31%);
 --primary: hsl(199 27% 18%);
 --primary-foreground: hsl(150 8% 95%);
 --secondary: hsl(22 20% 31%);
@@ -22,6 +23,7 @@
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
+    --color-text: var(--text);
 
     --color-primary: var(--primary);
     --color-primary-foreground: var(--primary-foreground);
@@ -49,4 +51,8 @@
 
 body {
     font-family: "Ubuntu", sans-serif;
+}
+
+.wrapper {
+    @apply max-w-5xl mx-auto px-4;
 }

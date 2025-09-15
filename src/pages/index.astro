@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import ButtonLink from "../components/ButtonLink.astro";
+import H1 from "../components/H1.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -10,15 +12,58 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   }}
 >
   <section
-    class="flex flex-col items-center text-center gap-8 justify-center py-16 px-4"
+    class="flex flex-col items-center text-center gap-4 justify-center py-16 wrapper"
   >
-    <h1 class="text-4xl font-bold">Hi, I'm Harry</h1>
-    <p class="text-lg">
-      I'm a carpenter and handyman in Capel-le-Ferne, Kent.<br />I offer a wide
-      range of services, including Carpentry, Handyman Services, Flat pack
-      assembly &amp; Kitchen Fitting.<br />Serving Capel-le-Ferne &amp;
-      Folkestone Kent.
+    <H1 title="Hi, I'm Harry" />
+    <p class="text-lg text-text">
+      I'm a friendly and professional carpenter and handyman.<br />Serving
+      Capel-le-Ferne &amp; Folkestone, Kent.
     </p>
     <ButtonLink href="/services" label="View Services" />
+  </section>
+
+  <section class="flex items-center justify-center wrapper hidden">
+    <Image
+      src="/images/harry-main.jpg"
+      alt="Harry Pearce and little Dylan"
+      class="w-full object-cover"
+      loading="lazy"
+      width={1199}
+      height={747}
+    />
+  </section>
+
+  <section class="py-16 bg-muted/20">
+    <div class="wrapper grid md:grid-cols-[2fr_1fr] gap-4">
+      <div class="flex flex-col gap-4">
+        <h2 class="text-2xl font-bold">No job too small</h2>
+        <p class="text-text">
+          I take pride in delivering high-quality workmanship with a friendly,
+          reliable approach. No job is too small, and I'll work with you to find
+          the right solution for your needs.
+        </p>
+        <ul class="list-disc list-inside text-text">
+          <li>Carpentry</li>
+          <li>Handyman</li>
+          <li>Flat-Pack Assembly</li>
+          <li>Kitchen Installation</li>
+          <li>Door Fitting & Hanging</li>
+          <li>Stud Wall Construction</li>
+          <li>Architrave & Skirting</li>
+          <li>Shelving & Wall Storage</li>
+          <li>And more...</li>
+        </ul>
+      </div>
+      <div>
+        <Image
+          src="/images/harry-portrait.jpg"
+          alt="Harry Pearce and little Dylan"
+          class="w-full object-cover"
+          loading="lazy"
+          width={800}
+          height={1067}
+        />
+      </div>
+    </div>
   </section>
 </BaseLayout>

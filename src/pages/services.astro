@@ -7,25 +7,49 @@ const services = [
   {
     title: "Carpentry",
     description:
-      "I offer a wide range of carpentry services, including but not limited to.. ",
+      "From custom shelving to repairs and bespoke woodwork, I provide reliable carpentry solutions to suit your home.",
+    image: "/images/services/carpentry.jpg",
+  },
+  {
+    title: "General Handyman",
+    description:
+      "Friendly and dependable help with those everyday jobs around the house — no task too small.",
     image: "/images/services/kitchen.jpg",
   },
   {
-    title: "Handyman Services",
+    title: "Flat-Pack Assembly",
     description:
-      "I offer a wide range of handyman services, including but not limited to.. ",
+      "I’ll take the stress out of flat-pack furniture by assembling it quickly and securely, ready to use.",
     image: "/images/services/kitchen.jpg",
   },
   {
-    title: "Flat pack assembly",
+    title: "Kitchen Installation",
     description:
-      "I offer a wide range of flat pack assembly services, including but not limited to.. ",
+      "Professional kitchen fitting, from units and worktops to finishing touches, completed with care and precision.",
     image: "/images/services/kitchen.jpg",
   },
   {
-    title: "Kitchen Fitting",
+    title: "Door Fitting & Hanging",
     description:
-      "I offer a wide range of kitchen installation services, including but not limited to.. ",
+      "Expert fitting of internal and external doors, ensuring a perfect fit and smooth finish every time.",
+    image: "/images/services/kitchen.jpg",
+  },
+  {
+    title: "Stud Wall Construction",
+    description:
+      "Creating new rooms or dividing spaces with sturdy, well-built stud walls tailored to your needs.",
+    image: "/images/services/wall.jpg",
+  },
+  {
+    title: "Architrave & Skirting",
+    description:
+      "Neat and professional fitting of architraves and skirting boards to give your rooms a polished look.",
+    image: "/images/services/kitchen.jpg",
+  },
+  {
+    title: "Shelving & Wall Storage",
+    description:
+      "Securely mounted shelves and storage solutions, combining practicality with a clean, professional finish.",
     image: "/images/services/kitchen.jpg",
   },
 ];
@@ -35,14 +59,14 @@ const services = [
   meta={{ title: "Services", description: "A list of the services I offer" }}
 >
   <section
-    class="flex flex-col gap-8 items-center justify-center max-w-6xl mx-auto py-16 px-4"
+    class="flex flex-col gap-8 items-center justify-center wrapper py-16"
   >
     <div class="flex flex-col gap-4 text-center max-w-xl mx-auto">
       <H1 title="Services" />
-      <p>
-        I pride myself on providing a high quality service to my clients. No job
-        is too small and I am able to work with you to find a solution to your
-        problem.
+      <p class="text-text">
+        I take pride in delivering high-quality workmanship with a friendly,
+        reliable approach. No job is too small, and I'll work with you to find
+        the right solution for your needs.
       </p>
     </div>
 
@@ -58,9 +82,9 @@ const services = [
               width={300}
               height={300}
             />
-            <div class="p-4">
-              <h2 class="text-2xl font-bold">{service.title}</h2>
-              <p class="text-gray-500">{service.description}</p>
+            <div class="p-4 flex flex-col gap-2">
+              <h2 class="text-xl font-semibold">{service.title}</h2>
+              <p class="text-text">{service.description}</p>
             </div>
           </div>
         ))
