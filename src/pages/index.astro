@@ -11,15 +11,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     description: "I am a carpenter and handyman in Capel-le-Ferne, Kent",
   }}
 >
-  <section
-    class="flex flex-col items-center text-center gap-4 justify-center py-16 wrapper"
-  >
-    <H1 title="Hi, I'm Harry" />
-    <p class="text-lg text-text">
-      I'm a friendly and professional carpenter and handyman.<br />Serving
-      Capel-le-Ferne &amp; Folkestone, Kent.
-    </p>
-    <ButtonLink href="/services" label="View Services" />
+  <section class="py-16 bg-muted/20">
+    <div
+      class="flex flex-col gap-4 wrapper items-center text-center justify-center"
+    >
+      <H1 title="Hi, I'm Harry" />
+      <p class="text-lg text-text">
+        I'm a friendly and professional carpenter and handyman.<br />Serving
+        Capel-le-Ferne &amp; Folkestone, Kent.
+      </p>
+      <ButtonLink href="/services" label="View Services" />
+    </div>
   </section>
 
   <section class="flex items-center justify-center wrapper hidden">
@@ -33,8 +35,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     />
   </section>
 
-  <section class="py-16 bg-muted/20">
-    <div class="wrapper grid md:grid-cols-[2fr_1fr] gap-4">
+  <section class="py-16">
+    <div class="wrapper grid md:grid-cols-[2fr_1fr] gap-8">
       <div class="flex flex-col gap-4">
         <h2 class="text-2xl font-bold">No job too small</h2>
         <p class="text-text">
@@ -58,7 +60,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <Image
           src="/images/harry-portrait.jpg"
           alt="Harry Pearce and little Dylan"
-          class="w-full object-cover"
+          class="w-full object-cover max-w-[400px]"
           loading="lazy"
           width={800}
           height={1067}
