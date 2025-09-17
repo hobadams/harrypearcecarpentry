@@ -43,7 +43,7 @@ const currentPath = Astro.url.pathname;
                 href={link.href}
                 class={cn(
                   "px-2 py-1 hover:bg-muted hover:text-muted-foreground rounded focus:outline-none focus:ring-2 focus:ring-primary",
-                  isActive && "bg-muted text-muted-foreground/20"
+                  isActive && "bg-muted/20 text-muted-foreground"
                 )}
               >
                 {link.label}
