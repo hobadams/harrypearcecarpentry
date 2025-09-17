@@ -62,18 +62,20 @@ const services = [
     url: "https://harrypearcecarpentry.co.uk/services",
   }}
 >
+  <section class="py-16 bg-muted/20">
+    <div
+      class="flex flex-col gap-4 items-center text-center justify-center wrapper"
+    >
+      <H1 title="Services" />
+      <p class="text-text text-lg">
+        I offer a wide range of services to suit your needs. I'm always happy to
+        discuss options that fit your budget and needs.
+      </p>
+    </div>
+  </section>
   <section
     class="flex flex-col gap-8 items-center justify-center wrapper py-16"
   >
-    <div class="flex flex-col gap-4 text-center max-w-xl mx-auto">
-      <H1 title="Services" />
-      <p class="text-text">
-        I take pride in delivering high-quality workmanship with a friendly,
-        reliable approach. No job is too small, and I'll work with you to find
-        the right solution for your needs.
-      </p>
-    </div>
-
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {
         services.map((service) => (

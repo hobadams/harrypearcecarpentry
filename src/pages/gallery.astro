@@ -1,5 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import H1 from "../components/H1.astro";
+import { Image } from "astro:assets";
+
+const gallery = [
+  {
+    src: "/images/services/carpentry.jpg",
+    title: "Custom kitchen",
+    description:
+      "Custom kitchen surface in London. Curved to fit work well with the customers tight space and design.",
+  },
+  {
+    src: "/images/services/kitchen.jpg",
+    title: "Kitchen installation",
+    description: "Full kitchen installation in Folkestone, Kent.",
+  },
+];
 ---
 
 <BaseLayout
@@ -9,7 +25,39 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     url: "https://harrypearcecarpentry.co.uk/gallery",
   }}
 >
-  <section class="flex flex-col items-center justify-center py-16 wrapper">
-    <h1 class="text-4xl font-bold">🚀 Coming Soon</h1>
+  <section class="py-16 bg-muted/20">
+    <div
+      class="flex flex-col gap-4 items-center text-center justify-center wrapper"
+    >
+      <H1 title="Gallery" />
+      <p class="text-text text-lig">
+        Here are some examples of recent work.<br />For specific examples please
+        get in touch.
+      </p>
+    </div>
+  </section>
+  <section class="py-16">
+    <div class="wrapper">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          gallery.map((image) => (
+            <div class="border border-border/50 rounded-md min-h-[200px] text-center flex flex-col justify-start">
+              <Image
+                src={image.src}
+                alt={image.title}
+                class="w-full object-cover"
+                loading="lazy"
+                width={800}
+                height={800}
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h2 class="text-xl font-semibold">{image.title}</h2>
+                <p class="text-text">{image.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </section>
 </BaseLayout>
