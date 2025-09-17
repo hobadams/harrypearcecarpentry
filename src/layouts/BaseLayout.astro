@@ -2,10 +2,38 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import { contact, services, areas } from "../data";
 
 const meta = Astro.props.meta || {
   title: "Default Title",
   description: "Default description",
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: "Harry Pearce Carpentry & Handyman Services",
+  image: "https://harrypearcecarpentry.co.uk/images/og.jpg",
+  url: "https://harrypearcecarpentry.co.uk",
+  telephone: contact.phone,
+  email: contact.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: contact.locality,
+    addressRegion: contact.region,
+    addressCountry: contact.country,
+  },
+  areaServed: areas.map((area) => ({
+    "@type": "Place",
+    name: area,
+  })),
+  makesOffer: services.map((service) => ({
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name: service.title,
+    },
+  })),
 };
 ---
 
@@ -38,6 +66,11 @@ const meta = Astro.props.meta || {
     <meta
       name="twitter:image"
       content="https://harrypearcecarpentry.co.uk/images/og.jpg"
+    />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schema, null, 2)}
     />
   </head>
   <body>

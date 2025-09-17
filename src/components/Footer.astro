@@ -1,6 +1,7 @@
 ---
 import ButtonLink from "./ButtonLink.astro";
 import { ShieldCheck } from "@lucide/astro";
+import { areas } from "../data";
 ---
 
 <div class="mt-auto">
@@ -13,12 +14,7 @@ import { ShieldCheck } from "@lucide/astro";
         I work in and around Capel-le-Ferne, Folkestone and surrounding areas.
       </p>
       <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 text-lg mt-4">
-        <li>Capel-le-Ferne</li>
-        <li>Folkestone</li>
-        <li>Hythe</li>
-        <li>Sandwich</li>
-        <li>Ramsgate</li>
-        <li>Thanet</li>
+        {areas.map((area) => <li>{area}</li>)}
       </ul>
     </div>
   </section>
