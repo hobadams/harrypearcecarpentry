@@ -3,15 +3,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import H1 from "../components/H1.astro";
 import { Image } from "astro:assets";
 
+import carpentry from "./images/services/carpentry.jpg";
+import kitchen from "./images/services/kitchen.jpg";
+
 const gallery = [
   {
-    src: "/images/services/carpentry.jpg",
+    src: carpentry,
     title: "Custom kitchen",
     description:
       "Custom kitchen surface in London. Curved to fit work well with the customers tight space and design.",
   },
   {
-    src: "/images/services/kitchen.jpg",
+    src: kitchen,
     title: "Kitchen installation",
     description: "Full kitchen installation in Folkestone, Kent.",
   },
@@ -48,8 +51,7 @@ const gallery = [
                 alt={image.title}
                 class="w-full object-cover"
                 loading="lazy"
-                width={800}
-                height={800}
+                decoding="async"
               />
               <div class="p-4 flex flex-col gap-2">
                 <h2 class="text-xl font-semibold">{image.title}</h2>

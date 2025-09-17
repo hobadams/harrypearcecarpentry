@@ -37,8 +37,7 @@ import { services } from "../data";
               alt={service.title}
               class="w-full h-full object-cover"
               loading="lazy"
-              width={300}
-              height={300}
+              decoding="async"
             />
             <div class="p-4 flex flex-col gap-2">
               <h2 class="text-xl font-semibold">{service.title}</h2>

@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import ButtonLink from "../components/ButtonLink.astro";
 import H1 from "../components/H1.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import main from "../images/main.jpg";
+import portrait from "../images/harry-portrait.jpg";
 ---
 
 <BaseLayout
@@ -29,12 +31,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     class="flex items-center justify-center py-0 md:py-4 md:py-8 max-w-5xl mx-auto"
   >
     <Image
-      src="/images/main.jpg"
+      src={main}
       alt="Harry Pearce and his van in Capel-le-Ferne"
       class="w-full object-cover"
       loading="lazy"
-      width={1600}
-      height={1200}
+      decoding="async"
     />
   </section>
 
@@ -61,12 +62,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
       <div>
         <Image
-          src="/images/harry-portrait.jpg"
+          src={portrait}
           alt="Harry Pearce and little Dylan"
           class="w-full object-cover max-w-[400px]"
           loading="lazy"
-          width={800}
-          height={1067}
+          decoding="async"
         />
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import H1 from "../components/H1.astro";
 import { contact } from "../data";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import main from "../images/main-square.jpg";
 ---
 
 <BaseLayout
@@ -36,12 +37,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
       <div>
         <Image
-          src="/images/main-square.jpg"
+          src={main}
           alt="Harry Pearce with his van"
           class="w-full object-cover max-w-[400px] mx-auto"
           loading="lazy"
-          width={800}
-          height={800}
+          decoding="async"
         />
       </div>
     </div>
