@@ -23,7 +23,7 @@ const currentPath = Astro.url.pathname;
   <!-- Sidebar -->
   <aside
     id="sidebar"
-    class="fixed right-0 top-0 h-full w-64 bg-background shadow-lg transform translate-x-full transition-transform duration-300"
+    class="fixed right-0 top-0 h-full w-64 bg-background shadow-lg transform translate-x-full transition-transform duration-300 hidden"
   >
     <div class="p-4 flex flex-col h-full gap-8">
       <header class="flex justify-end">
@@ -91,5 +91,9 @@ const currentPath = Astro.url.pathname;
     if (e.key === "Escape" && !sidebar.classList.contains("translate-x-full")) {
       closeSidebar();
     }
+  });
+
+  requestAnimationFrame(() => {
+    sidebar.classList.remove("hidden");
   });
 </script>
