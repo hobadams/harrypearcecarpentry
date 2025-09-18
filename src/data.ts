@@ -70,4 +70,7 @@ export const areas = [
   "Sandwich",
   "Ramsgate",
   "Thanet",
+  "Dover",
+  "Aylesham",
+  "Ashford",
 ];
