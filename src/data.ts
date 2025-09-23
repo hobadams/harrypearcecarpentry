@@ -2,6 +2,11 @@ import carpentry from "./images/services/carpentry.jpg";
 import handyman from "./images/services/handyman.jpg";
 import kitchen from "./images/services/kitchen.jpg";
 import wall from "./images/services/wall.jpg";
+import architrave from "./images/services/architraves.jpg";
+import shelving from "./images/services/shelves.jpeg";
+import doors from "./images/services/doors.jpg";
+import flatPack from "./images/services/flat-pack.jpg";
+import floor from "./images/services/floor.jpg";
 
 export const contact = {
   email: "harrypearce744@gmail.com",
@@ -16,32 +21,32 @@ export const services = [
   {
     title: "Carpentry",
     description:
-      "From custom shelving to repairs and bespoke woodwork, I provide reliable carpentry solutions to suit your home.",
+      "From bespoke designs to repairs and restoration, I provide reliable carpentry solutions to suit your home.",
     image: carpentry,
   },
   {
     title: "General Handyman",
     description:
-      "Friendly and dependable help with those everyday jobs around the house — no task too small.",
+      "Friendly and dependable help with those everyday jobs around the house - no task too small.",
     image: handyman,
   },
   {
     title: "Flat-Pack Assembly",
     description:
       "I'll take the stress out of flat-pack furniture by assembling it quickly and securely, ready to use.",
-    image: kitchen,
+    image: flatPack,
   },
   {
-    title: "Kitchen Installation",
+    title: "Kitchen Fitting",
     description:
-      "Professional kitchen fitting, from units and worktops to finishing touches, completed with care and precision.",
+      "From units and worktops to finishing touches, completed with care and precision.",
     image: kitchen,
   },
   {
     title: "Door Fitting & Hanging",
     description:
-      "Expert fitting of internal and external doors, ensuring a perfect fit and smooth finish every time.",
-    image: kitchen,
+      "Fitting of internal and external doors, complete with ironmongery.",
+    image: doors,
   },
   {
     title: "Stud Wall Construction",
@@ -53,13 +58,19 @@ export const services = [
     title: "Architrave & Skirting",
     description:
       "Neat and professional fitting of architraves and skirting boards to give your rooms a polished look.",
-    image: kitchen,
+    image: architrave,
   },
   {
     title: "Shelving & Wall Storage",
     description:
       "Securely mounted shelves and storage solutions, combining practicality with a clean, professional finish.",
-    image: kitchen,
+    image: shelving,
+  },
+  {
+    title: "Floor Laying",
+    description:
+      "I fit laminate and hardwood flooring, including insulation and underlay.",
+    image: floor,
   },
 ];
 
@@ -69,8 +80,6 @@ export const areas = [
   "Hythe",
   "Sandwich",
   "Ramsgate",
-  "Thanet",
   "Dover",
-  "Aylesham",
   "Ashford",
 ];
