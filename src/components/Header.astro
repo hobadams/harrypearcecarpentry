@@ -14,10 +14,11 @@ const currentPath = Astro.url.pathname;
     <a href="/" class="flex text-foreground gap-2 items-center">
       <LogoIcon class="size-16" />
       <span class="flex flex-col"
-        ><span class="text-xl uppercase font-bold leading-[1]"
-          >Harry Pearce</span
-        >
-        <span class="text-lg uppercase leading-[1]">Carpentry</span></span
+        ><span class="text-xl font-heading leading-[1.2]">Harry Pearce</span>
+        <span
+          class="text-lg font-heading text-muted-foreground tracking-wider leading-[1.2]"
+          >Carpentry</span
+        ></span
       >
     </a>
 
@@ -33,7 +34,7 @@ const currentPath = Astro.url.pathname;
                 <a
                   href={link.href}
                   class={cn(
-                    "text-foreground hover:text-primary transition-colors border-b-2 border-transparent hover:border-muted py-1",
+                    "text-foreground hover:text-primary font-heading transition-colors border-b-2 border-transparent hover:border-muted py-1",
                     isActive && "text-primary border-muted"
                   )}
                 >
