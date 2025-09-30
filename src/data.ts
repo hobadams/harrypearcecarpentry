@@ -6,7 +6,7 @@ import architrave from "./images/services/architraves.jpg";
 import shelving from "./images/services/shelves.jpeg";
 import doors from "./images/services/doors.jpg";
 import flatPack from "./images/services/flat-pack.jpg";
-import floor from "./images/services/floor.jpg";
+import floor from "./images/services/floor.png";
 
 export const contact = {
   email: "harrypearce744@gmail.com",
