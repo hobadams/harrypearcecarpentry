@@ -1,5 +1,6 @@
 ---
 import ButtonLink from "./ButtonLink.astro";
+import SocialLink from "./SocialLink.astro";
 import { ShieldCheck } from "@lucide/astro";
 import { areas } from "../data";
 ---
@@ -38,7 +39,22 @@ import { areas } from "../data";
           Liability Insurance
         </p>
       </div>
-      <p>Carpentry &amp; Handyman Services - Capel-le-Ferne, Kent</p>
+      <div class="flex flex-col items-center md:items-end gap-4">
+        <p>Carpentry &amp; Handyman Services - Capel-le-Ferne, Kent</p>
+
+        <div class="flex items-center gap-2">
+          <SocialLink
+            network="instagram"
+            title="Instagram"
+            url="https://www.instagram.com/harrypearcecarpentry/"
+          />
+          <!-- <SocialLink
+            network="facebook"
+            title="Facebook"
+            url="https://www.facebook.com/harrypearcecarpentry/"
+          /> -->
+        </div>
+      </div>
     </div>
   </footer>
 </div>

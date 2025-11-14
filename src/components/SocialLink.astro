@@ -1,0 +1,23 @@
+---
+import Instagram from "../icons/instagram.svg";
+import Facebook from "../icons/facebook.svg";
+
+type Network = "instagram" | "facebook";
+const { title, url, network: Network } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="flex items-center gap-1"
+>
+  {
+    Network === "instagram" ? (
+      <Instagram class="size-4" />
+    ) : (
+      <Facebook class="size-4" />
+    )
+  }
+  <span>{title}</span></a
+>
