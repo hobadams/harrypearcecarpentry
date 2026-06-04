@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import ButtonLink from "../components/ButtonLink.astro";
 import H1 from "../components/H1.astro";
+import Testimonials from "../components/Testimonials.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import main from "../images/main.jpg";
 import portrait from "../images/harry-portrait.jpg";
@@ -9,9 +10,9 @@ import portrait from "../images/harry-portrait.jpg";
 
 <BaseLayout
   meta={{
-    title: "Carpenter and handyman Capel-le-Ferne",
+    title: "Bespoke Carpenter Capel-le-Ferne",
     description:
-      "Professional carpenter and handyman serving Capel-le-Ferne / Folkestone, Kent. Kitchen fitting, door hanging, flat-pack assembly & more. Free quotes.",
+      "Bespoke carpenter serving Capel-le-Ferne / Folkestone, Kent. Custom carpentry, kitchen fitting, door hanging, flat-pack assembly & more. Free quotes.",
   }}
 >
   <section class="py-16 bg-muted/20">
@@ -20,7 +21,7 @@ import portrait from "../images/harry-portrait.jpg";
     >
       <H1 title="Hi, I'm Harry" />
       <p class="text-lg text-text">
-        I'm a friendly, professional carpenter and handyman.<br />Serving
+        Bespoke carpentry and high-quality interior installations.<br />Serving
         Capel-le-Ferne, Folkestone and other surrounding areas in Kent.
       </p>
       <ButtonLink href="/services" label="View Services" />
@@ -40,6 +41,30 @@ import portrait from "../images/harry-portrait.jpg";
     />
   </section>
 
+  <section class="py-8 md:py-16 bg-muted/20">
+    <div class="wrapper flex flex-col gap-4">
+      <h2 class="text-2xl font-bold">A bit about me</h2>
+      <p class="text-text">
+        I'm a skilled carpenter specialising in bespoke woodwork and
+        high-quality interior installations. With a background in shipbuilding,
+        my skills developed in an environment where accuracy and strength are
+        essential.
+      </p>
+      <p class="text-text">
+        I focus on tailored solutions rather than one-size-fits-all fixes,
+        working closely with clients to create pieces and spaces that are both
+        functional and built to last. From custom carpentry and kitchen
+        installations to doors, stud walls, and detailed finishing work such as
+        architraves, skirting, and fitted storage, every job is approached with
+        care and attention to detail.
+      </p>
+      <p class="text-text">
+        If you're looking for reliable, professional craftsmanship with a
+        bespoke finish, I'm here to help bring your ideas to life.
+      </p>
+    </div>
+  </section>
+
   <section class="py-8 md:py-16">
     <div class="wrapper grid md:grid-cols-[2fr_1fr] gap-8">
       <div class="flex flex-col gap-4">
@@ -51,7 +76,6 @@ import portrait from "../images/harry-portrait.jpg";
         </p>
         <ul class="list-disc list-inside text-text">
           <li>Carpentry</li>
-          <li>Handyman</li>
           <li>Flat-Pack Assembly</li>
           <li>Kitchen Installation</li>
           <li>Door Fitting & Hanging</li>
@@ -72,4 +96,6 @@ import portrait from "../images/harry-portrait.jpg";
       </div>
     </div>
   </section>
+
+  <Testimonials />
 </BaseLayout>

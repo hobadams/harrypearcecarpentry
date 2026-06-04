@@ -1,5 +1,4 @@
 import carpentry from "./images/services/carpentry.jpg";
-import handyman from "./images/services/handyman.jpg";
 import kitchen from "./images/services/kitchen.jpg";
 import wall from "./images/services/wall.jpg";
 import architrave from "./images/services/architraves.jpg";
@@ -23,12 +22,6 @@ export const services = [
     description:
       "From bespoke designs to repairs and restoration, I provide reliable carpentry solutions to suit your home.",
     image: carpentry,
-  },
-  {
-    title: "General Handyman",
-    description:
-      "Friendly and dependable help with those everyday jobs around the house - no task too small.",
-    image: handyman,
   },
   {
     title: "Flat-Pack Assembly",
