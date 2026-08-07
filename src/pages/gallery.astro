@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import H1 from "../components/H1.astro";
 import { Image, getImage } from "astro:assets";
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
 
 import carpentry from "../images/services/carpentry.jpg";
 import kitchen from "../images/services/kitchen.jpg";
@@ -33,7 +34,7 @@ const gallery = [
     src: pergola,
     title: "Green oak pergola",
     description:
-      "Bespoke green oak pergola made using traditional mortise and tenon joinery, drawbore pegs and curved hanging knees. Finished with exterior oil for durability and to bring out this beautiful colour and grain.",
+      "Bespoke green oak pergola with traditional mortise and tenon joinery, drawbore pegs and curved hanging knees, finished in exterior oil.",
   },
   {
     src: bespokeStorage,
@@ -195,18 +196,25 @@ const firstSlideOf = (itemIndex: number) =>
           aria-label="Close"
           tabindex="-1"
         />
+        <a href="#gallery" class="lightbox__close" aria-label="Close">
+          &times;
+        </a>
+        <a
+          href={`#photo-${(slide.index - 1 + slides.length) % slides.length}`}
+          class="lightbox__nav lightbox__nav--prev"
+          aria-label="Previous photo"
+        >
+          <ChevronLeft size={28} aria-hidden="true" />
+        </a>
+        <a
+          href={`#photo-${(slide.index + 1) % slides.length}`}
+          class="lightbox__nav lightbox__nav--next"
+          aria-label="Next photo"
+        >
+          <ChevronRight size={28} aria-hidden="true" />
+        </a>
         <div class="lightbox__content">
-          <a href="#gallery" class="lightbox__close" aria-label="Close">
-            &times;
-          </a>
-          <img
-            src={slide.full}
-            alt={slide.alt}
-            class:list={[
-              "w-auto rounded-md",
-              slide.photos.length > 1 ? "max-h-[60vh]" : "max-h-[80vh]",
-            ]}
-          />
+          <img src={slide.full} alt={slide.alt} class="lightbox__image" />
           {slide.photos.length > 1 && (
             <div class="lightbox__thumbs">
               {slide.photos.map((photo, k) => (
@@ -221,9 +229,7 @@ const firstSlideOf = (itemIndex: number) =>
               ))}
             </div>
           )}
-          <p class="mt-3 max-w-2xl text-center text-white">
-            {slide.description}
-          </p>
+          <p class="lightbox__caption">{slide.description}</p>
         </div>
       </div>
     ))
@@ -238,7 +244,8 @@ const firstSlideOf = (itemIndex: number) =>
     display: none;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    padding: 3.5rem 1.5rem 1.5rem;
+    overflow-y: auto;
   }
 
   /* Pure-CSS modal: the overlay targeted by the #photo-N hash becomes visible. */
@@ -247,17 +254,32 @@ const firstSlideOf = (itemIndex: number) =>
   }
 
   .lightbox__backdrop {
-    position: absolute;
+    position: fixed;
     inset: 0;
-    background: rgb(0 0 0 / 0.8);
+    background: rgb(0 0 0 / 0.85);
   }
 
+  /* Column that fits the viewport: the image absorbs whatever height the
+     thumbs and caption leave, so nothing is pushed off screen. */
   .lightbox__content {
     position: relative;
     display: flex;
-    max-width: 92vw;
+    margin: auto;
+    max-width: min(92vw, 60rem);
+    max-height: 100%;
+    min-height: 0;
     flex-direction: column;
     align-items: center;
+  }
+
+  .lightbox__image {
+    min-height: 0;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    flex: 0 1 auto;
+    object-fit: contain;
+    border-radius: 0.375rem;
   }
 
   .lightbox__close {
@@ -275,18 +297,67 @@ const firstSlideOf = (itemIndex: number) =>
     border-radius: 0.25rem;
   }
 
+  .lightbox__nav {
+    position: fixed;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    transform: translateY(-50%);
+    border-radius: 9999px;
+    background: rgb(0 0 0 / 0.5);
+    color: #fff;
+    transition: background-color 0.2s;
+  }
+
+  .lightbox__nav:hover {
+    background: rgb(0 0 0 / 0.75);
+  }
+
+  .lightbox__nav:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  .lightbox__nav--prev {
+    left: 0.5rem;
+  }
+
+  .lightbox__nav--next {
+    right: 0.5rem;
+  }
+
+  .lightbox__caption {
+    flex: none;
+    margin-top: 0.75rem;
+    max-width: 42rem;
+    text-align: center;
+    font-size: 0.8125rem;
+    color: #fff;
+  }
+
   .lightbox__thumbs {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex: none;
+    max-width: 100%;
+    justify-content: flex-start;
     gap: 0.5rem;
     margin-top: 0.75rem;
+    padding-bottom: 0.25rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .lightbox__thumbs::-webkit-scrollbar {
+    display: none;
   }
 
   .lightbox__thumb {
     display: block;
-    width: 4rem;
-    height: 4rem;
+    flex: none;
+    width: 3rem;
+    height: 3rem;
     overflow: hidden;
     border: 2px solid transparent;
     border-radius: 0.25rem;
@@ -316,6 +387,36 @@ const firstSlideOf = (itemIndex: number) =>
   .lightbox__thumb:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .lightbox {
+      padding: 3rem 1rem 1rem;
+    }
+
+    /* Too narrow to sit beside the image, so they overlay its edges. */
+    .lightbox__nav {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .lightbox__nav--prev {
+      left: 0.25rem;
+    }
+
+    .lightbox__nav--next {
+      right: 0.25rem;
+    }
+
+    .lightbox__thumb {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    .lightbox__caption {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+    }
   }
 </style>
 
@@ -403,11 +504,13 @@ const firstSlideOf = (itemIndex: number) =>
       },
     );
 
-    box.querySelectorAll<HTMLAnchorElement>(".lightbox__thumb").forEach(
-      (thumb) => {
-        thumb.addEventListener("click", (event) => {
+    // Thumbs and the prev/next arrows swap photo without stacking history,
+    // so one Back press still leaves the lightbox.
+    box.querySelectorAll<HTMLAnchorElement>('a[href^="#photo-"]').forEach(
+      (link) => {
+        link.addEventListener("click", (event) => {
           event.preventDefault();
-          location.replace(thumb.getAttribute("href")!);
+          location.replace(link.getAttribute("href")!);
         });
       },
     );
