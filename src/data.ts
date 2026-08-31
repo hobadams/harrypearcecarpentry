@@ -6,6 +6,7 @@ import shelving from "./images/services/shelves.jpeg";
 import doors from "./images/services/doors.jpg";
 import flatPack from "./images/services/flat-pack.jpg";
 import floor from "./images/services/floor.png";
+import bespokeStorage from "./images/gallery/bespoke-storage.jpg";
 
 export const contact = {
   email: "harrypearce744@gmail.com",
@@ -22,6 +23,12 @@ export const services = [
     description:
       "From bespoke designs to repairs and restoration, I provide reliable carpentry solutions to suit your home.",
     image: carpentry,
+  },
+  {
+    title: "Bespoke Storage Solutions",
+    description:
+      "From custom display units to understairs cupboards, I'll help you find the perfect storage solution.",
+    image: bespokeStorage,
   },
   {
     title: "Flat-Pack Assembly",
