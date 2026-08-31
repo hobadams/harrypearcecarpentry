@@ -29,6 +29,20 @@ const pergola = folder(
   ),
 );
 
+const frontDoor = folder(
+  import.meta.glob<ImageMetadata>(
+    "../images/gallery/front-door/*.{jpg,jpeg,png,webp,avif}",
+    { eager: true, import: "default" },
+  ),
+);
+
+const airingCupboard = folder(
+  import.meta.glob<ImageMetadata>(
+    "../images/gallery/airing-cupboard/*.{jpg,jpeg,png,webp,avif}",
+    { eager: true, import: "default" },
+  ),
+);
+
 const gallery = [
   {
     src: pergola,
@@ -40,6 +54,18 @@ const gallery = [
     src: bespokeStorage,
     title: "Bespoke storage",
     description: "Bespoke built in storage in Capel-le-Ferne, Kent.",
+  },
+  {
+    src: frontDoor,
+    title: "Front door and fan light",
+    description:
+      "A Upvc front door and fan light replacement to a new hardwood door frame and beautiful salvaged wooden door and stained glass fan light replacement.",
+  },
+  {
+    src: airingCupboard,
+    title: "Airing cupboard",
+    description:
+      "A built in airing cupboard with sliding louvre doors to make the most of a tight space. Including slatted shelves above the radiator and specific cubbys for all the clients utility needs.",
   },
   {
     src: understairs,
